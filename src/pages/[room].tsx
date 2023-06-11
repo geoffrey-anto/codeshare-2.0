@@ -50,6 +50,7 @@ export default function Home({ codeInitial, languageInitial }: Props) {
       console.log("connected");
       socket.emit("room-code", room);
       socket.on("code-receive", (code) => {
+        console.log(code);
         if (code.clientUUID === userClientUUID) return;
         setCode(code.data);
         setSelectedLanguage(code.codeLanguage);
